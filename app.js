@@ -49,6 +49,7 @@ $(document).ready(function () {
   });
 });
 
+// Add a Row
 function addRow() {
   var lastRow = $('#inputTable tr:last');
   var lastRowNumebr = parseInt(lastRow.children()[1].innerText);
@@ -76,6 +77,7 @@ function addRow() {
   });
 }
 
+// Delete a Row
 function deleteRow() {
   var lastRow = $('#inputTable tr:last');
   lastRow.remove();
@@ -90,6 +92,7 @@ function deleteRow() {
 $(".initial").change(function () {
   recalculateServiceTime();
 });
+
 
 function recalculateServiceTime() {
   var inputTable = $('#inputTable tr');
@@ -320,6 +323,7 @@ function draw() {
       + td
       + '</tr></table>'
     );
+
   }
   else if (algorithm == "priority") {
     var executeTimes = [];
