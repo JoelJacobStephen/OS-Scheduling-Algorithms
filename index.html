@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div>
+        <div class="schedule">
+            <h1 class="title">
+                OS Scheduling Algorithms
+            </h1>
+            <div class="schedule-container">
+                <form id="algorithm">
+                    <input type="radio" name="algorithm" class="types" value="fcfs" /> FCFS<br />
+                    <input type="radio" name="algorithm" class="types" value="sjf" /> SJF<br />
+                    <input type="radio" name="algorithm" class="types" value="priority" /> Priority scheduling<br />
+                    <input type="radio" name="algorithm" class="types" value="robin" /> Round Robin
+                </form>
+            </div>
+
+            <br>
+        </div>
+        <div class="description">
+            <p class="priority-only">In Priority scheduling, there is a priority number assigned to each process. In
+                some systems, the lower
+                the number, the higher the priority. While, in the others, the higher the number, the higher will be the
+                priority. The Process with the higher priority among the available processes is given the CPU. There are
+                two types of priority scheduling algorithm exists. One is Preemptive priority scheduling while the other
+                is Non Preemptive Priority scheduling.</p>
+
+            <p class="robin-only">Round Robin scheduling algorithm is one of the most popular scheduling algorithm which
+                can actually be implemented in most of the operating systems. This is the preemptive version of first
+                come first serve scheduling. The Algorithm focuses on Time Sharing. In this algorithm, every process
+                gets executed in a cyclic way. A certain time slice is defined in the system which is called time
+                quantum. Each process present in the ready queue is assigned the CPU for that time quantum, if the
+                execution of the process is completed during that time then the process will terminate else the process
+                will go back to the ready queue and waits for the next turn to complete the execution.</p>
+
+            <p class="fcfs-only">First come first serve (FCFS) scheduling algorithm simply schedules the jobs according
+                to their arrival time. The job which comes first in the ready queue will get the CPU first. The lesser
+                the arrival time of the job, the sooner will the job get the CPU. FCFS scheduling may cause the problem
+                of starvation if the burst time of the first process is the longest among all the jobs.</p>
+
+            <p class="sjf-only">In SJF scheduling, the process with the lowest burst time, among the list of available
+                processes in the ready queue, is going to be scheduled next.
+
+                However, it is very difficult to predict the burst time needed for a process hence this algorithm is
+                very difficult to implement in the system.</p>
+        </div>
+        <div class="table table-container">
+            <table id="inputTable" class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Process</th>
+                        <th>Arrival Time</th>
+                        <th>CPU Burst Time</th>
+                        <th class="servtime">Waiting Time</th>
+                        <th class="priority-only">Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>P0</td>
+                        <td>0</td>
+                        <td><input class="initial exectime" type="text" value="5" /></td>
+                        <td class="servtime"></td>
+                        <td class="priority-only initial"><input type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>P1</td>
+                        <td>1</td>
+                        <td><input class="initial exectime" value="3" /></td>
+                        <td class="servtime"></td>
+                        <td class="priority-only"><input type="text" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="button-container">
+
+        <input type="button" value=" + " onclick="addRow();" class="button" />
+        <input id="minus" type="button" value=" - " onclick="deleteRow();" class="button" />
+        <div>
+        </div>
+        <input type="button" value="Go" onclick="draw();" class="button" />
+
+        <br /><br />
+
+    </div>
+
+    <div class="quantum">
+
+        <p id="quantumParagraph" hidden>Quantum:
+            <input style="width: 50px;" id="quantum" type="text" value="3" />
+        </p>
+    </div>
+
+    <div>
+        <div class="result">
+
+            <fresh>
+            </fresh>
+
+        </div>
+        <p class="timer">
+            Timer: <strong id="timer"></strong> sec
+        </p>
+    </div>
+
+</body>
+
+</html>
